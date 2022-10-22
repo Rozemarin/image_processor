@@ -1,2 +1,33 @@
-# image_processor
-Console C++ application that applies filters to BMP images
+# Графические фильтры (image_processor)
+
+## Поддерживаемый формат изображений
+
+Входные и выходные графические файлы должны быть в формате 24-битного BMP без сжатия и без таблицы цветов.
+
+## Фильтры
+
+#### Crop (-crop width height)
+Обрезает изображение до заданных ширины и высоты
+
+#### Grayscale (-gs)
+Преобразует изображение в оттенки серого
+
+#### Negative (-neg)
+Преобразует изображение в негатив
+
+#### Sharpening (-sharp)
+Повышение резкости
+
+#### Edge Detection (-edge threshold)
+Выделение границ. Изображение переводится в оттенки серого и применяется матрица
+
+![encoding](https://latex.codecogs.com/svg.image?%5Cbegin%7Bbmatrix%7D%20&%20-1%20&%20%20%5C%5C-1%20&%204%20&%20-1%20%5C%5C%20&%20-1%20&%20%20%5C%5C%5Cend%7Bbmatrix%7D)
+
+Пиксели со значением, превысившим `threshold`, окрашиваются в белый, остальные – в черный.
+
+#### Gaussian Blur (-blur sigma)
+[Гауссово размытие](https://ru.wikipedia.org/wiki/Размытие_по_Гауссу),
+параметр – сигма.
+
+#### Pixelate (-pixel size)
+Пикселизация изображения
